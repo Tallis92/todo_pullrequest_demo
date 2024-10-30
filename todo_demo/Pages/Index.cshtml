@@ -5,14 +5,36 @@
 }
 
 <div class="text-center">
-Borat
-    <h1 class="display-4">F*CK OFF</h1>
-    <p>Learn about <a href="https://chat.openai.com">building Web apps with ASP.NET Core</a>.</p>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
-    <p>Välkommen till todo_demo :)</p>
-
-    <p>Robin did stuff!!!</p>
-
+    <h1 class="display-9">F*CK OFF</h1>
+    <p>Learn about <a href="https://chat.openai.com"> your best friend <strong>ChatGPT</strong></a>.</p>
 </div>
+
+<form method="post">
+    <div class="form-group"> 
+        <input type="text" asp-for="@Model.TodoItem.Title" placeholder="What needs to be done?"/>
+        <input type="text" asp-for="@Model.TodoItem.Description" placeholder="More details?"/>
+        <br/>
+        <button type="submit" class="btn btn-primary">Add todo</button>
+    </div>
+</form>
+
+<h3>Todo list</h3>
+
+@if(Model.TodoItems == null)
+{
+    <p>You have nothing to do.</p>
+}
+
+else
+{
+foreach (var item in Model.TodoItems)
+{
+    <h2>@item.Title</h2>
+    <h4>@item.Description</h4>
+}
+}
+
+
+
+
+

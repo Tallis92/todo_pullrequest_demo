@@ -12,9 +12,26 @@ namespace todo_demo.Pages
             _logger = logger;
         }
 
+        [BindProperty]
+        public Models.TodoItem TodoItem { get; set; } 
+        public List<Models.TodoItem> TodoItems { get; set; }
+
         public void OnGet()
         {
+            if (TodoItems == null)
+            {
+                TodoItems = new List<Models.TodoItem>();
+            }
+        }
+        public IActionResult OnPost()
+        {
+            if (TodoItems == null)
+            {
+                TodoItems = new List<Models.TodoItem>();
+            }
 
+            TodoItems.Add(TodoItem);
+            return Page();
         }
     }
 }
