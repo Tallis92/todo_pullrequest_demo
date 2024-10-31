@@ -3,16 +3,13 @@ name: build-project#Micke
 on: workflow_dispatch
 
 jobs:
-  build-project:
+ build-project:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v4
-      
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4.1.0
+    - uses: actions/checkout@v4
+    - name: Setup .Net
+    - uses: actions/setup-dotnet@v4.1.0
       with:
-        dotnet-version: '9' # specify the .NET version as a string
-    
+        dotnet-version: 9
     - name: Build Project
-      run: dotnet build todo_demo.sln
+    - run: cd todo_demo.sln; dotnet build
