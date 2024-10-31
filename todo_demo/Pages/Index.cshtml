@@ -10,31 +10,25 @@
 </div>
 
 <form method="post">
-    <div class="form-group"> 
-        <input type="text" asp-for="@Model.TodoItem.Title" placeholder="What needs to be done?"/>
-        <input type="text" asp-for="@Model.TodoItem.Description" placeholder="More details?"/>
-        <br/>
+    <div class="form-group">
+        <input type="text" asp-for="@Model.TodoItem.Title" placeholder="What needs to be done?" />
+        <input type="text" asp-for="@Model.TodoItem.Description" placeholder="More details?" />
+        <br /><br />
         <button type="submit" class="btn btn-primary">Add todo</button>
     </div>
 </form>
 
 <h3>Todo list</h3>
 
-@if(Model.TodoItems == null)
+@if (IndexModel.TodoItems == null || !IndexModel.TodoItems.Any())
 {
     <p>You have nothing to do.</p>
 }
-
 else
 {
-foreach (var item in Model.TodoItems)
-{
-    <h2>@item.Title</h2>
-    <h4>@item.Description</h4>
+    foreach (var item in IndexModel.TodoItems)
+    {
+        <h2>@item.Title</h2>
+        <p>@item.Description</p>
+    }
 }
-}
-
-
-
-
-
