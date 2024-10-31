@@ -5,15 +5,15 @@ on: workflow_dispatch
 jobs:
  build-project:
     runs-on: ubuntu-latest
-    steps:     
-    - name: Checkout Repository
+    steps:
+    - name: Check out repository
       uses: actions/checkout@v4
-
-    - name: Setup .Net
+      
+    - name: Setup .NET
       uses: actions/setup-dotnet@v4.1.0
       with:
-        dotnet-version: 9
-        
+        dotnet-version: '9' # specify the .NET version as a string
+    
     - name: Build Project
-    - run: dotnet build todo_demo.sln
+      run: dotnet build todo_demo.sln
   
