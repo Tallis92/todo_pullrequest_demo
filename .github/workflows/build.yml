@@ -3,7 +3,7 @@ name: build-project#Micke
 on: workflow_dispatch
 
 jobs:
-  build-project:
+ build-project:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
