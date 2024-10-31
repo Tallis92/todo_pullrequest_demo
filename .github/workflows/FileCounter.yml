@@ -5,6 +5,7 @@ jobs:
   count-cs-files:
     runs-on: ubuntu-latest
     steps:
+    - run: pwd
     - name: Checkout Repository
       uses: actions/checkout@v4
 
