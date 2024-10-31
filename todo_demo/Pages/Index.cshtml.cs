@@ -20,11 +20,12 @@ namespace todo_demo.Pages
 
         public void OnGet()
         {
-            
+
         }
 
         public IActionResult OnPost()
         {
+
             if (TodoItem != null)
             {
                 TodoItems.Add(TodoItem);
