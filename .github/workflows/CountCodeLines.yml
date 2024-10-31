@@ -6,7 +6,7 @@ jobs:
   count-code:
     runs-on: ubuntu-latest
     steps:
-    - uses: action/checkout@v4
+    - uses: actions/checkout@v4
     - name: Count Lines of Code
       run: |
         LINE_COUNT=$(find . -name "*.cs" -exec cat {} + | wc -l)
