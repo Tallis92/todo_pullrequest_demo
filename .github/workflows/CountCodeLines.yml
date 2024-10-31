@@ -1,0 +1,14 @@
+name: Count Code Lines#Micke
+
+on: workflow_dispatch
+
+jobs:
+  count-code:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: action/checkout@v4
+    - name: Count Lines of Code
+      run: |
+        LINE_COUNT=$(find . -name "*.cs" -exec cat {} + | wc -l)
+          echo "Total lines of code in .cs files: $LINE_COUNT"
+    
