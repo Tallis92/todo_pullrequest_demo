@@ -2,9 +2,25 @@
 {
     public class Functions
     {
-        public static void Write()
+        public static List<Models.TodoItem> TodoItems { get; set; } = new List<Models.TodoItem>();
+
+        public static List<Models.TodoItem> CreateList()
         {
-            Console.WriteLine("Tjena gänget!");
+            TodoItems = new List<Models.TodoItem>();
+
+            return TodoItems;
+        }
+
+        public static List<Models.TodoItem> UpdateList(List<Models.TodoItem> list)
+        {
+            TodoItems.AddRange(list);
+
+            return TodoItems;
+        }
+
+        public static List<Models.TodoItem> GetList()
+        {
+            return TodoItems;
         }
     }
 }

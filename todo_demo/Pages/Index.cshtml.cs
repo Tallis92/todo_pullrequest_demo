@@ -18,19 +18,21 @@ namespace todo_demo.Pages
 
         public void OnGet()
         {
+            TodoItems = Functions.GetList();
+            TodoItem = new Models.TodoItem();
+
             if (TodoItems == null)
             {
                 TodoItems = new List<Models.TodoItem>();
             }
+           
         }
         public IActionResult OnPost()
         {
-            if (TodoItems == null)
-            {
-                TodoItems = new List<Models.TodoItem>();
-            }
-
+            TodoItems = Functions.GetList();
             TodoItems.Add(TodoItem);
+            Functions.UpdateList(TodoItems);
+
             return Page();
         }
     }
