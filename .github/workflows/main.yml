@@ -1,0 +1,13 @@
+#Anger namn
+name: TodoWorkflow#Micke
+
+on: workflow_dispatch
+
+jobs:
+  print-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: basename "$(pwd)"
+      - run: git branch --show-current
+  
