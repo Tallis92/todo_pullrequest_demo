@@ -13,25 +13,23 @@ namespace todo_demo.Pages
         }
 
         [BindProperty]
-        public Models.TodoItem TodoItem { get; set; } 
-        public List<Models.TodoItem> TodoItems { get; set; }
+        public Models.TodoItem TodoItem { get; set; }
+
+       
+        public static List<Models.TodoItem> TodoItems { get; set; } = new List<Models.TodoItem>();
 
         public void OnGet()
         {
-            TodoItems = Functions.GetList();
-            TodoItem = new Models.TodoItem();
 
-            if (TodoItems == null)
-            {
-                TodoItems = new List<Models.TodoItem>();
-            }
-           
         }
+
         public IActionResult OnPost()
         {
-            TodoItems = Functions.GetList();
-            TodoItems.Add(TodoItem);
-            Functions.UpdateList(TodoItems);
+
+            if (TodoItem != null)
+            {
+                TodoItems.Add(TodoItem);
+            }
 
             return Page();
         }
