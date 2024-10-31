@@ -1,7 +1,8 @@
 name: build-project#Micke
 
-on: workflow_dispatch
-
+on: 
+ push:
+ 
 jobs:
  build-project:
     runs-on: ubuntu-latest
