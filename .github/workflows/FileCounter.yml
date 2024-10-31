@@ -1,0 +1,14 @@
+name: Count_files#Micke
+
+on: workflow_dispatch
+jobs:
+  count-cs-files:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Count Files
+      run: |
+        FILE_COUNT=$(find . -name "*.cs" | wc -l)
+          echo "Number of .cs files: $FILE_COUNT"
