@@ -33,10 +33,10 @@ jobs:
    needs: build-project
    steps:
      - name: check out test
-     - uses: actions/checkout@v4
+       uses: actions/checkout@v4
 
      - name: download artifact
-     - uses: actions/download-artifact@v4.4.3
+       uses: actions/download-artifact@v4.4.3
        with:
          name: build-artifact
 
