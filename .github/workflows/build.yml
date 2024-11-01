@@ -29,19 +29,19 @@ jobs:
         name: build-artifact
         path: ./build
  test:
-   runs-on: ubuntu-latest
-   needs: build-project
-   steps:
-     - name: check out test
-       uses: actions/checkout@v4
-
-     - name: download artifact
-       uses: actions/download-artifact@v4.4.3
-       with:
-         name: build-artifact
-
-     - name: test-run
-       run: dotnet test ./todo_demo/bin/Release/net8.0/todo_demo.dll
-       
-       
+     runs-on: ubuntu-latest
+     needs: build-project
+     steps:
+       - name: check out test
+         uses: actions/checkout@v4
   
+       - name: download artifact
+         uses: actions/download-artifact@v4.4.3
+         with:
+           name: build-artifact
+  
+       - name: test-run
+         run: dotnet test ./todo_demo/bin/Release/net8.0/todo_demo.dll
+         
+         
+    
