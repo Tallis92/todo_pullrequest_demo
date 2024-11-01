@@ -46,4 +46,4 @@ jobs:
         run: ls -R ./build
 
       - name: Test run
-        run: dotnet test ./build
+        run: dotnet test ./build/todo_demo.dll
