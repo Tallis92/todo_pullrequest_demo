@@ -39,3 +39,6 @@ jobs:
         with:
           name: build-artifact
           path: ./build
+
+         # - name: Test run
+        # run: dotnet test ./build/todo_demo.dll # Use the correct path to the DLL
