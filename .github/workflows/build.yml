@@ -3,6 +3,7 @@ name: build-project # Micke
 on: 
   push:
     branches:
+      - main
       - RobinDutt
 
 jobs:
@@ -18,25 +19,27 @@ jobs:
           dotnet-version: '9' # specify the .NET version as a string
       
       - name: Build Project
-        run: dotnet publish todo_demo.sln --output ./build
+        run: dotnet publish todo_demo.sln --output ./build  # Publish output to ./build
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.4.3
         with:
           name: build-artifact
-          path: ./build
+          path: ./build  # Upload the entire build folder
 
   test:
     runs-on: ubuntu-latest
     needs: build-project
     steps:
-      - name: Check out test
+      - name: Check out repository
         uses: actions/checkout@v4
       
       - name: Download artifact
         uses: actions/download-artifact@v4.1.8
         with:
           name: build-artifact
+          path: ./build
+
       
       - name: Test run
-        run: dotnet test ./todo_demo/bin/Release/net8.0/todo_demo.dll
+        run: dotnet test ./build/todo_demo.dll # Use the correct path to the DLL
