@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - RobinDutt
-
+      - main
 jobs:
   build-project:
     runs-on: ubuntu-latest
