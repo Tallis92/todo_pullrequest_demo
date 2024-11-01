@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - RobinDutt
+      - main
 
 jobs:
   build-project:
