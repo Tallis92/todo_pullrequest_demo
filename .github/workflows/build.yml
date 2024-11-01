@@ -1,47 +1,45 @@
-name: build-project#Micke
+name: build-project # Micke
 
 on: 
- push:
-   branches:
-     - RobinDutt
-     
+  push:
+    branches:
+      - RobinDutt
+
 jobs:
- build-project:
+  build-project:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.1.0
+        with:
+          dotnet-version: '9' # specify the .NET version as a string
       
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4.1.0
-      with:
-        dotnet-version: '9' # specify the .NET version as a string
-    
-    - name: Build Project
-      run: dotnet build todo_demo.sln
+      - name: Build Project
+        run: dotnet build todo_demo.sln
       
-    - name: Checks for directory
-      run: mkdir -p ./build
+      - name: Checks for directory
+        run: mkdir -p ./build
       
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4.4.3
-      with:
-        name: build-artifact
-        path: ./build
- test:
-   runs-on: ubuntu-latest
-   needs: build-project
-   steps:
-     - name: check out test
-       uses: actions/checkout@v4
-  
-     - name: download artifact
-       uses: actions/download-artifact@v4.4.3
-       with:
-         name: build-artifact
-  
-     - name: test-run
-       run: dotnet test ./todo_demo/bin/Release/net8.0/todo_demo.dll
-         
-         
-    
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: build-artifact
+          path: ./build
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build-project
+    steps:
+      - name: Check out test
+        uses: actions/checkout@v4
+      
+      - name: Download artifact
+        uses: actions/download-artifact@v4.4.3
+        with:
+          name: build-artifact
+      
+      - name: Test run
+        run: dotnet test ./todo_demo/bin/Release/net8.0/todo_demo.dll
