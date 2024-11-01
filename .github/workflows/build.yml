@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '9' # specify the .NET version as a string
       
       - name: Build Project
-        run: dotnet publish todo_demo.sln -c Release -o ./build
+        run: dotnet publish todo_demo.sln --output ./build
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.4.3
@@ -39,4 +39,4 @@ jobs:
           name: build-artifact
       
       - name: Test run
-        run: dotnet test ./build/todo_demo.dll
+        run: dotnet test ./todo_demo/bin/Release/net8.0/todo_demo.dll
