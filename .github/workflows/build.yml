@@ -3,8 +3,8 @@ name: build-project # Micke
 on: 
   push:
     branches:
+      - main
       - RobinDutt
-      - main  # Consider adding this if you also want to trigger on main
 
 jobs:
   build-project:
@@ -40,4 +40,4 @@ jobs:
           name: build-artifact
       
       - name: Test run
-        run: dotnet test ./build/todo_demo.dll  # Use the correct path to the DLL
+        run: dotnet test ./build/todo_demo/bin/Release/net8.0/todo_demo.dll # Use the correct path to the DLL
