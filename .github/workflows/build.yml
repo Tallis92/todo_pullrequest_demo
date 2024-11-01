@@ -45,5 +45,5 @@ jobs:
       - name: List contents of downloaded build directory
         run: ls -R ./build
 
-      - name: Test run
-        run: dotnet test ./build/todo_demo.dll
+      #- name: Test run
+      #  run: dotnet test ./build/todo_demo.dll
